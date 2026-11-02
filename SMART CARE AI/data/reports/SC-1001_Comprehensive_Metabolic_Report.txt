@@ -1,0 +1,20 @@
+SmartCare Apex Diagnostics • Comprehensive Metabolic & Lipid Profile
+Patient ID: SC-1001 | Patient Name: Aarav Sharma | Age: 32 | Gender: Male
+Sample Date: 2026-10-22 | Reporting Date: 2026-10-23
+
+TEST INVESTIGATION                   RESULT     UNIT       REFERENCE RANGE
+---------------------------------------------------------------------------
+Fasting Plasma Glucose (FBS)        95.0       mg/dL      70.0 - 99.0      (NORMAL)
+Glycated Hemoglobin (HbA1c)         5.4        %          4.0 - 5.6        (NORMAL)
+Total Serum Cholesterol             185.0      mg/dL      < 200.0          (DESIRABLE)
+HDL Cholesterol (Good)              52.0       mg/dL      > 40.0           (NORMAL)
+LDL Cholesterol (Calculated)        112.0      mg/dL      < 100.0          (BORDERLINE HIGH)
+Serum Triglycerides                 110.0      mg/dL      < 150.0          (NORMAL)
+Serum Creatinine                    0.9        mg/dL      0.7 - 1.2        (NORMAL)
+Estimated GFR                       > 90       mL/min     > 90             (NORMAL)
+Blood Urea Nitrogen (BUN)           14.0       mg/dL      7.0 - 20.0       (NORMAL)
+Serum Bilirubin (Total)             0.8        mg/dL      0.2 - 1.2        (NORMAL)
+
+CLINICAL INTERPRETATION NOTE:
+Metabolic parameters within healthy baseline ranges. Borderline LDL noted; dietary fiber
+enhancement and regular cardiovascular aerobic exercise recommended for routine follow-up.

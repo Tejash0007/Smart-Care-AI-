@@ -1,0 +1,822 @@
+/* ==========================================================================
+   SmartCare AI – Modern Healthcare SaaS UI Stylesheet
+   Redesigned for Premium Clinical Aesthetic, High Visibility & Accessibility
+   
+   Colour Palette:
+     - Primary Teal:     #087F8C
+     - Sky Blue:         #3498DB
+     - Accent Purple:    #8064D8
+     - Success Green:    #20A779
+     - Warning Amber:    #E5A000
+     - Alert Coral Red:  #E45B65
+     - Main Background:  #F5F8FC
+     - Card Background:  #FFFFFF
+     - Main Text Navy:   #243447
+     - Secondary Text:   #64748B
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* --- Root Variables --- */
+:root {
+    --primary: #087F8C;
+    --primary-dark: #066772;
+    --primary-light: #E6F7F8;
+    --secondary: #3498DB;
+    --secondary-dark: #1D72B8;
+    --secondary-light: #F0F7FD;
+    --accent: #8064D8;
+    --accent-dark: #6848C9;
+    --accent-light: #F5F2FC;
+    --success: #20A779;
+    --success-dark: #16845F;
+    --success-light: #EFF9F5;
+    --warning: #E5A000;
+    --warning-dark: #B87B00;
+    --warning-light: #FEF9EE;
+    --alert: #E45B65;
+    --alert-dark: #C9323D;
+    --alert-light: #FDF2F3;
+    --bg-main: #F5F8FC;
+    --card-bg: #FFFFFF;
+    --text-main: #243447;
+    --text-secondary: #64748B;
+    --border-color: #E2E8F0;
+    --border-input: #CBD5E1;
+    --shadow-soft: 0 4px 18px rgba(36, 52, 71, 0.05);
+    --shadow-hover: 0 8px 24px rgba(36, 52, 71, 0.10);
+    --shadow-card: 0 2px 10px rgba(36, 52, 71, 0.04);
+}
+
+/* --- Global Reset & Streamlit Containers --- */
+html, body, [class*="css"] {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 15.5px !important;
+    color: var(--text-main) !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+.stApp,
+section.main {
+    background-color: #F5F8FC !important;
+}
+
+[data-testid="stHeader"] {
+    background-color: rgba(245, 248, 252, 0.90) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+    height: 3.25rem !important;
+}
+
+/* Remove huge top whitespace in Streamlit */
+[data-testid="block-container"],
+.block-container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 3.5rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    max-width: 1320px !important;
+}
+
+/* --- Typography Hierarchy (Exact User Specs: 28-32px, 20-24px, 15-17px, labels >= 14px) --- */
+h1, .page-main-title, .portal-header-title, [data-testid="stHeadingWithActionElements"] h1 {
+    font-size: 30px !important; /* 28-32px */
+    font-weight: 800 !important;
+    color: var(--text-main) !important;
+    letter-spacing: -0.5px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.6rem !important;
+}
+
+h2, .section-heading-lg, [data-testid="stHeadingWithActionElements"] h2 {
+    font-size: 22px !important; /* 20-24px */
+    font-weight: 700 !important;
+    color: var(--text-main) !important;
+    letter-spacing: -0.3px !important;
+    line-height: 1.3 !important;
+    margin-top: 1.2rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+h3, .section-heading, [data-testid="stHeadingWithActionElements"] h3 {
+    font-size: 20px !important; /* 20-24px */
+    font-weight: 700 !important;
+    color: var(--text-main) !important;
+    letter-spacing: -0.2px !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.6rem !important;
+}
+
+h4, h5, h6, [data-testid="stHeadingWithActionElements"] h4 {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    color: var(--text-main) !important;
+}
+
+p, span, div, li, td, .stMarkdown p {
+    font-size: 15.5px !important; /* 15-17px */
+    color: var(--text-main);
+    line-height: 1.6 !important;
+}
+
+/* High Contrast Captions & Subtext (Never pale light grey!) */
+.stCaption, small, .text-muted, p[data-testid="stCaptionContainer"] {
+    color: var(--text-secondary) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1.45 !important;
+}
+
+/* Accessible Interactive Links */
+a {
+    color: var(--primary) !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+a:hover {
+    color: var(--primary-dark) !important;
+    text-decoration: underline !important;
+}
+
+/* --- Streamlit Sidebar (Expanded Width, High Visibility, No Clipping) --- */
+section[data-testid="stSidebar"],
+[data-testid="stSidebar"] {
+    min-width: 315px !important;
+    max-width: 340px !important;
+    width: 320px !important;
+    background-color: #FFFFFF !important;
+    border-right: 1.5px solid var(--border-color) !important;
+    box-shadow: 3px 0 20px rgba(36, 52, 71, 0.05) !important;
+}
+
+[data-testid="stSidebarContent"] {
+    padding-top: 1.25rem !important;
+    padding-left: 1.15rem !important;
+    padding-right: 1.15rem !important;
+    padding-bottom: 2rem !important;
+}
+
+/* Sidebar Brand Header Card */
+.sidebar-brand-box {
+    text-align: left;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, #F0F7FD 0%, #E6F7F8 100%);
+    border: 1.5px solid #D1EBF3;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(8, 127, 140, 0.06);
+}
+
+.sidebar-brand-title {
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    color: var(--primary) !important;
+    letter-spacing: -0.4px;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar-brand-caption {
+    font-size: 0.80rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 4px 0 0 0;
+    letter-spacing: 0.2px;
+}
+
+/* Sidebar User Profile Card */
+.user-profile-badge {
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(36, 52, 71, 0.03);
+}
+
+.user-name-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 2px 0;
+}
+
+.user-role-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+}
+
+.sidebar-portal-badge {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 9px;
+    border-radius: 6px;
+}
+
+.badge-patient-portal {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid #B8EBEF;
+}
+
+.badge-provider-portal {
+    background-color: var(--accent-light);
+    color: var(--accent-dark);
+    border: 1px solid #DDD3F5;
+}
+
+/* Sidebar Navigation Items (Clear Highlights, Readable Text) */
+[data-testid="stSidebarNav"] {
+    margin-top: 8px !important;
+}
+
+[data-testid="stSidebarNav"] ul {
+    padding-left: 0 !important;
+    list-style: none !important;
+}
+
+[data-testid="stSidebarNav"] li {
+    margin-bottom: 5px !important;
+}
+
+[data-testid="stSidebarNavLink"],
+[data-testid="stSidebarNav"] a {
+    display: flex !important;
+    align-items: center !important;
+    border-radius: 10px !important;
+    padding: 9px 14px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    color: var(--text-main) !important;
+    text-decoration: none !important;
+    border: 1px solid transparent !important;
+    transition: all 0.18s ease-in-out !important;
+}
+
+[data-testid="stSidebarNavLink"]:hover,
+[data-testid="stSidebarNav"] a:hover {
+    background-color: #F0F7FD !important;
+    color: var(--primary) !important;
+    border-color: #D6EAF8 !important;
+    transform: translateX(3px) !important;
+}
+
+[data-testid="stSidebarNavLink"][aria-current="page"],
+[data-testid="stSidebarNav"] a[aria-current="page"],
+[data-testid="stSidebarNavLink"].active {
+    background: linear-gradient(90deg, #E6F7F8 0%, #F0F7FD 100%) !important;
+    border-left: 5px solid var(--primary) !important;
+    border-color: #B8E8ED !important;
+    border-left-color: var(--primary) !important;
+    color: var(--primary) !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 8px rgba(8, 127, 140, 0.12) !important;
+}
+
+[data-testid="stSidebarNavLink"] span,
+[data-testid="stSidebarNav"] a span {
+    font-size: 15px !important;
+    color: inherit !important;
+}
+
+/* Sidebar Section Headers */
+[data-testid="stSidebarNavSeparator"],
+[data-testid="stSidebarNav"] span[data-testid="stSidebarNavHeader"],
+[data-testid="stSidebarNav"] [data-testid="stSidebarNavSectionHeader"] {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    color: var(--text-secondary) !important;
+    margin-top: 14px !important;
+    margin-bottom: 6px !important;
+    display: block !important;
+}
+
+/* --- Hero Banner Headers for Portals --- */
+.portal-header-patient {
+    background: linear-gradient(135deg, #087F8C 0%, #3498DB 100%);
+    padding: 24px 28px;
+    border-radius: 16px;
+    color: #FFFFFF !important;
+    margin-bottom: 22px;
+    box-shadow: 0 6px 20px rgba(8, 127, 140, 0.22);
+}
+
+.portal-header-provider {
+    background: linear-gradient(135deg, #1D2D44 0%, #087F8C 100%);
+    padding: 24px 28px;
+    border-radius: 16px;
+    color: #FFFFFF !important;
+    margin-bottom: 22px;
+    box-shadow: 0 6px 20px rgba(29, 45, 68, 0.24);
+}
+
+.portal-header-title {
+    color: #FFFFFF !important;
+    font-size: 30px !important;
+    font-weight: 800 !important;
+    margin: 0 0 6px 0 !important;
+    letter-spacing: -0.4px;
+}
+
+.portal-header-subtitle {
+    color: #EBF8F9 !important;
+    font-size: 15.5px !important;
+    margin: 0 !important;
+    opacity: 0.95;
+    line-height: 1.5;
+}
+
+/* --- Modern Healthcare SaaS Metric Cards (With Vibrant Subtle Tint Gradients) --- */
+.saas-metric-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.saas-metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* 1. Blue Card (Sky Blue: Total Patients / Demographics) */
+.card-blue {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F0F7FD 100%);
+    border-left: 5px solid var(--secondary) !important;
+    border-top: 1.5px solid #D6EAF8;
+    border-right: 1.5px solid #D6EAF8;
+    border-bottom: 1.5px solid #D6EAF8;
+}
+.card-blue .metric-icon {
+    background-color: #E1F0FA;
+    color: var(--secondary-dark);
+}
+
+/* 2. Teal Card (Deep Teal: Vitals / Biometrics) */
+.card-teal {
+    background: linear-gradient(135deg, #FFFFFF 0%, #EBF8F9 100%);
+    border-left: 5px solid var(--primary) !important;
+    border-top: 1.5px solid #D0EFF2;
+    border-right: 1.5px solid #D0EFF2;
+    border-bottom: 1.5px solid #D0EFF2;
+}
+.card-teal .metric-icon {
+    background-color: #D8F2F5;
+    color: var(--primary);
+}
+
+/* 3. Purple Card (Accent Purple: Diagnostic Reports / Documents) */
+.card-purple {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F5F2FC 100%);
+    border-left: 5px solid var(--accent) !important;
+    border-top: 1.5px solid #E8E2F7;
+    border-right: 1.5px solid #E8E2F7;
+    border-bottom: 1.5px solid #E8E2F7;
+}
+.card-purple .metric-icon {
+    background-color: #ECE7F9;
+    color: var(--accent-dark);
+}
+
+/* 4. Green Card (Success Green: Normal Vitals / Activity) */
+.card-green {
+    background: linear-gradient(135deg, #FFFFFF 0%, #EFF9F5 100%);
+    border-left: 5px solid var(--success) !important;
+    border-top: 1.5px solid #D2F2E5;
+    border-right: 1.5px solid #D2F2E5;
+    border-bottom: 1.5px solid #D2F2E5;
+}
+.card-green .metric-icon {
+    background-color: #DCF4EC;
+    color: var(--success-dark);
+}
+
+/* 5. Amber Card (Warning Amber: Elevated Readings / Attentions) */
+.card-amber {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FEF9EE 100%);
+    border-left: 5px solid var(--warning) !important;
+    border-top: 1.5px solid #FAEFCF;
+    border-right: 1.5px solid #FAEFCF;
+    border-bottom: 1.5px solid #FAEFCF;
+}
+.card-amber .metric-icon {
+    background-color: #FDF2D9;
+    color: var(--warning-dark);
+}
+
+/* 6. Coral Card (Alert Coral: High Severity / Critical Alerts) */
+.card-coral {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FDF2F3 100%);
+    border-left: 5px solid var(--alert) !important;
+    border-top: 1.5px solid #F9DADB;
+    border-right: 1.5px solid #F9DADB;
+    border-bottom: 1.5px solid #F9DADB;
+}
+.card-coral .metric-icon {
+    background-color: #FCE0E3;
+    color: var(--alert-dark);
+}
+
+/* Metric Typography Inside Cards */
+.metric-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.metric-header {
+    font-size: 13px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-secondary);
+}
+
+.metric-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.metric-big-num {
+    font-size: 30px !important;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+.metric-subtitle {
+    font-size: 14px !important;
+    font-weight: 600;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Streamlit Native st.metric Styling */
+[data-testid="stMetric"] {
+    background: #FFFFFF !important;
+    border: 1.5px solid var(--border-color) !important;
+    border-radius: 16px !important;
+    padding: 18px 22px !important;
+    box-shadow: var(--shadow-card) !important;
+    border-left: 5px solid var(--primary) !important;
+}
+
+[data-testid="stMetricLabel"] p,
+[data-testid="stMetricLabel"] span {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--text-secondary) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+[data-testid="stMetricValue"] div {
+    font-size: 30px !important;
+    font-weight: 800 !important;
+    color: var(--text-main) !important;
+    letter-spacing: -0.5px !important;
+}
+
+/* --- Section Content Panels & White Cards --- */
+.content-panel {
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 22px;
+}
+
+.panel-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 14px 0;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid #F1F5F9;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- Notice Banners & Clinical Disclaimers --- */
+.clinical-disclaimer, .banner-warning {
+    background-color: var(--warning-light) !important;
+    border: 1.5px solid #F8E5BA !important;
+    border-left: 5px solid var(--warning) !important;
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
+    margin-bottom: 20px !important;
+    font-size: 15px !important;
+    color: #7D5200 !important;
+    line-height: 1.55 !important;
+}
+
+.chat-banner, .banner-info {
+    background-color: var(--secondary-light) !important;
+    border: 1.5px solid #C8E3F8 !important;
+    border-left: 5px solid var(--secondary) !important;
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
+    margin-bottom: 20px !important;
+    font-size: 15px !important;
+    color: #185587 !important;
+    line-height: 1.55 !important;
+}
+
+.banner-success {
+    background-color: var(--success-light) !important;
+    border: 1.5px solid #B8E8D5 !important;
+    border-left: 5px solid var(--success) !important;
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
+    margin-bottom: 20px !important;
+    font-size: 15px !important;
+    color: #0D5E43 !important;
+    line-height: 1.55 !important;
+}
+
+.banner-alert {
+    background-color: var(--alert-light) !important;
+    border: 1.5px solid #F9DADB !important;
+    border-left: 5px solid var(--alert) !important;
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
+    margin-bottom: 20px !important;
+    font-size: 15px !important;
+    color: #8B1E26 !important;
+    line-height: 1.55 !important;
+}
+
+/* --- Status Badges & Pills --- */
+.badge-pill {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 13px !important;
+    font-weight: 700;
+    border-radius: 9999px;
+    letter-spacing: 0.3px;
+}
+
+.badge-pill.success { background-color: var(--success-light); color: var(--success-dark); border: 1px solid #B8E8D5; }
+.badge-pill.warning { background-color: var(--warning-light); color: var(--warning-dark); border: 1px solid #F8E5BA; }
+.badge-pill.danger  { background-color: var(--alert-light);   color: var(--alert-dark);   border: 1px solid #F9DADB; }
+.badge-pill.info    { background-color: var(--secondary-light); color: var(--secondary-dark); border: 1px solid #C8E3F8; }
+.badge-pill.purple  { background-color: var(--accent-light);  color: var(--accent-dark);  border: 1px solid #DDD3F5; }
+
+/* --- Forms & Form Controls (Minimum 14px labels, high contrast) --- */
+[data-testid="stForm"] {
+    background: #FFFFFF !important;
+    border: 1.5px solid var(--border-color) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: var(--shadow-card) !important;
+    margin-bottom: 24px !important;
+}
+
+label, 
+div[data-testid="stWidgetLabel"] label p, 
+div[data-testid="stWidgetLabel"] label span {
+    font-size: 15px !important; /* >= 14px */
+    font-weight: 600 !important;
+    color: var(--text-main) !important;
+    margin-bottom: 5px !important;
+}
+
+/* --- Input Containers (Streamlit 1.66 React-Aria & BaseWeb Compatibility) --- */
+[data-testid="stTextInputRootElement"],
+[data-testid="stNumberInputContainer"],
+div[data-baseweb="input"],
+div[data-baseweb="base-input"],
+div[data-baseweb="select"] > div,
+.react-aria-TextField {
+    background-color: #FFFFFF !important;
+    border: 1.5px solid var(--border-input) !important;
+    border-radius: 10px !important;
+    transition: all 0.18s ease-in-out !important;
+}
+
+[data-testid="stTextInputRootElement"]:focus-within,
+[data-testid="stNumberInputContainer"]:focus-within,
+div[data-baseweb="input"]:focus-within,
+div[data-baseweb="base-input"]:focus-within,
+div[data-baseweb="select"] > div:focus-within,
+.react-aria-TextField:focus-within {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(8, 127, 140, 0.20) !important;
+}
+
+/* Explicit input/textarea text styling, caret, and pointer event handling */
+input, textarea,
+[data-testid="stTextInput"] input,
+[data-testid="stNumberInput"] input,
+div[data-baseweb="input"] input,
+div[data-baseweb="textarea"] textarea {
+    font-size: 15px !important;
+    color: var(--text-main) !important;
+    background-color: transparent !important;
+    caret-color: var(--primary) !important;
+    cursor: text !important;
+    pointer-events: auto !important;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #94A3B8 !important;
+    opacity: 1 !important;
+}
+
+/* File Uploader SaaS Aesthetic */
+[data-testid="stFileUploader"] section {
+    background: #FFFFFF !important;
+    border: 2px dashed #3498DB !important;
+    border-radius: 14px !important;
+    padding: 24px !important;
+    text-align: center !important;
+    transition: all 0.2s ease !important;
+}
+[data-testid="stFileUploader"] section:hover {
+    border-color: var(--primary) !important;
+    background-color: #F0F9FA !important;
+}
+
+/* --- Streamlit Buttons --- */
+div.stButton > button {
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    padding: 0.55rem 1.4rem !important;
+    font-size: 15px !important;
+    transition: all 0.18s ease !important;
+}
+
+/* Primary Button: Deep Teal Gradient */
+div.stButton > button[kind="primary"], 
+button[data-testid="baseButton-primary"] {
+    background: linear-gradient(135deg, #087F8C 0%, #066772 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(8, 127, 140, 0.25) !important;
+}
+
+div.stButton > button[kind="primary"]:hover, 
+button[data-testid="baseButton-primary"]:hover {
+    background: linear-gradient(135deg, #066772 0%, #044F57 100%) !important;
+    box-shadow: 0 4px 14px rgba(8, 127, 140, 0.35) !important;
+    transform: translateY(-1px);
+}
+
+/* Secondary Button: Clean White Card with Slate Border */
+div.stButton > button[kind="secondary"], 
+button[data-testid="baseButton-secondary"] {
+    background: #FFFFFF !important;
+    color: var(--text-main) !important;
+    border: 1.5px solid var(--border-input) !important;
+}
+
+div.stButton > button[kind="secondary"]:hover, 
+button[data-testid="baseButton-secondary"]:hover {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+    background: #E6F7F8 !important;
+    transform: translateY(-1px);
+}
+
+/* --- Tabs Enhancement (Clean Modern Tab Bar - BaseWeb & Streamlit 1.66) --- */
+div[data-baseweb="tab-list"],
+div[data-testid="stTabs"] [role="tablist"] {
+    background: transparent !important;
+    border-bottom: 2px solid var(--border-color) !important;
+    gap: 8px !important;
+    margin-bottom: 1.4rem !important;
+}
+
+div[data-baseweb="tab"],
+div[data-testid="stTab"],
+button[data-testid="stTab"],
+[role="tab"] {
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    color: var(--text-secondary) !important;
+    padding: 10px 22px !important;
+    border-radius: 10px 10px 0 0 !important;
+    background: #F8FAFC !important;
+    border: 1.5px solid var(--border-color) !important;
+    border-bottom: none !important;
+    transition: all 0.18s ease !important;
+    cursor: pointer !important;
+}
+
+div[data-baseweb="tab"]:hover,
+div[data-testid="stTab"]:hover,
+button[data-testid="stTab"]:hover,
+[role="tab"]:hover {
+    color: var(--primary) !important;
+    background: #E6F7F8 !important;
+}
+
+div[data-baseweb="tab"][aria-selected="true"],
+div[data-testid="stTab"][aria-selected="true"],
+button[data-testid="stTab"][aria-selected="true"],
+[role="tab"][aria-selected="true"] {
+    color: var(--primary) !important;
+    background: #FFFFFF !important;
+    font-weight: 700 !important;
+    border-color: var(--primary) var(--primary) #FFFFFF var(--primary) !important;
+    border-top: 3.5px solid var(--primary) !important;
+}
+
+/* --- Table Readability & High-Contrast Design --- */
+div[data-testid="stDataFrame"] {
+    border-radius: 14px !important;
+    border: 1.5px solid var(--border-color) !important;
+    background-color: #FFFFFF !important;
+    box-shadow: var(--shadow-card) !important;
+    overflow: hidden !important;
+}
+
+div[data-testid="stDataFrame"] table {
+    font-size: 14.5px !important;
+    color: var(--text-main) !important;
+}
+
+/* --- AI Chatbot Interface --- */
+div[data-testid="stChatMessage"] {
+    border-radius: 16px !important;
+    padding: 16px 20px !important;
+    margin-bottom: 14px !important;
+    box-shadow: 0 3px 12px rgba(36, 52, 71, 0.04) !important;
+}
+
+/* User Message: Sky Blue Tint */
+div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarUser"]) {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F0F7FD 100%) !important;
+    border: 1.5px solid #C8E3F8 !important;
+    border-left: 5px solid var(--secondary) !important;
+}
+
+/* Assistant Message: Deep Teal Tint */
+div[data-testid="stChatMessage"]:has(div[data-testid="stChatMessageAvatarAssistant"]) {
+    background: #FFFFFF !important;
+    border: 1.5px solid var(--border-color) !important;
+    border-left: 5px solid var(--primary) !important;
+}
+
+/* Quick Question Chip Buttons */
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.chip-btn {
+    background-color: #FFFFFF;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.chip-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: #E6F7F8;
+}
+
+/* Expanders */
+div[data-testid="stExpander"] {
+    background: #FFFFFF !important;
+    border: 1.5px solid var(--border-color) !important;
+    border-radius: 14px !important;
+    box-shadow: var(--shadow-card) !important;
+    margin-bottom: 14px !important;
+}
